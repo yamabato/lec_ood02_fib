@@ -1,9 +1,9 @@
-	.file	"perf_fib.c"
+	.file	"perf_fib_loop.c"
 	.intel_syntax noprefix
 	.text
-	.globl	fib
-	.type	fib, @function
-fib:
+	.globl	fib_loop
+	.type	fib_loop, @function
+fib_loop:
 .LFB0:
 	.cfi_startproc
 	endbr64
@@ -36,7 +36,7 @@ fib:
 	ret
 	.cfi_endproc
 .LFE0:
-	.size	fib, .-fib
+	.size	fib_loop, .-fib_loop
 	.section	.rodata
 .LC0:
 	.string	"%d: %ld\n"
@@ -86,7 +86,7 @@ main:
 .L8:
 	mov	eax, DWORD PTR -92[rbp]
 	mov	edi, eax
-	call	fib
+	call	fib_loop
 	add	DWORD PTR -96[rbp], 1
 .L7:
 	cmp	DWORD PTR -96[rbp], 99999
