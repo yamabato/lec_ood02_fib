@@ -8,29 +8,7 @@ LU_FORMAT:
 	.string "%lu\n"
 
 	.text
-	.globl fib_asm
 	.globl main
-
-	.type fib_loop_asm, @function
-fib_loop_asm:
-	endbr64
-
-	xor rax, rax
-	mov r8, 1
-	xor r9, r9
-
-fib_lp:
-	test dil, dil
-	je fib_fin
-	add rax, r8
-	mov r8, r9
-	mov r9, rax
-	dec dil
-	jmp fib_lp
-
-fib_fin:
-	ret
-	.size	fib_loop_asm, .-fib_loop_asm
 
 	.type	main, @function
 main:
@@ -65,7 +43,21 @@ main_n_lp:
 	mov r15, rax
 main_times_lp:
 	mov dil, r14b
-	call fib_loop_asm
+
+	xor rax, rax
+	mov r8, 1
+	xor r9, r9
+
+fib_lp:
+	test dil, dil
+	je fib_fin
+	add rax, r8
+	mov r8, r9
+	mov r9, rax
+	dec dil
+	jmp fib_lp
+
+fib_fin:
 
 	dec r13d
 	test r13d, r13d
