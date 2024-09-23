@@ -11,8 +11,8 @@ LU_FORMAT:
 	.globl fib_asm
 	.globl main
 
-	.type fib_asm, @function
-fib_asm:
+	.type fib_loop_asm, @function
+fib_loop_asm:
 	endbr64
 
 	xor rax, rax
@@ -30,7 +30,7 @@ fib_lp:
 
 fib_fin:
 	ret
-	.size	fib_asm, .-fib_asm
+	.size	fib_loop_asm, .-fib_loop_asm
 
 	.type	main, @function
 main:
@@ -65,7 +65,7 @@ main_n_lp:
 	mov r15, rax
 main_times_lp:
 	mov dil, r14b
-	call fib_asm
+	call fib_loop_asm
 
 	dec r13d
 	test r13d, r13d

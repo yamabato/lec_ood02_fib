@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdint.h>
 
-uint64_t fib(int n) {
+uint64_t fib_loop(int n) {
   uint64_t f = 0;
   uint64_t x = 1;
   uint64_t y = 0;
@@ -25,7 +25,7 @@ int main() {
     n = n_list[i];
     start_t = clock();
     for (int j=0; j<100000; j++) {
-      fib(n);
+      fib_loop(n);
     }
     printf("%d: %ld\n", n, clock() - start_t);
   }

@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdint.h>
 
-uint64_t fib(int n) {
+uint64_t fib_loop(int n) {
   uint64_t f = 0;
   uint64_t x = 1;
   uint64_t y = 0;
@@ -21,7 +21,7 @@ int main() {
 
   printf("Please input numer: ");
   scanf("%d", &n);
-  printf("fib(%d) = %lu\n", n, fib(n));
+  printf("fib(%d) = %lu\n", n, fib_loop(n));
 
   return 0;
 }

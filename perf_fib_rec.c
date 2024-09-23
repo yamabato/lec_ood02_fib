@@ -17,7 +17,7 @@ int main() {
   for (int i=0; i<16; i++) {
     n = n_list[i];
     start_t = clock();
-    for (int j=0; j<100000; j++) {
+    for (int j=0; j<1; j++) {
       fib_rec(n);
     }
     printf("%d: %ld\n", n, clock() - start_t);
