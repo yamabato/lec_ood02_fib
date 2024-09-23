@@ -63,7 +63,7 @@ main:
 	push	rbp
 	.cfi_def_cfa_offset 48
 	.cfi_offset 6, -48
-	lea	rbp, .LC4[rip]
+	# lea	rbp, .LC4[rip]
 	push	rbx
 	.cfi_def_cfa_offset 56
 	.cfi_offset 3, -56
